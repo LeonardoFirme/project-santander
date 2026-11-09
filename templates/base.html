@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Santander Empresas{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/santander.css">
+    <script src="/static/js/masks.js" defer></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    {% if '/painel/' in request.path or '/accounts/login' in request.path or '/accounts/register' in request.path or '/accounts/abrir-conta' in request.path or '/admin/' in request.path %}
+        {% include "includes/preloader.html" %}
+    {% endif %}
+
+    {% block body %}{% endblock %}
+</body>
+</html>

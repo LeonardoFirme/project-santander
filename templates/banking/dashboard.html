@@ -1,0 +1,401 @@
+{% extends "base.html" %}
+{% block title %}Visão Geral | Santander Empresas{% endblock %}
+{% block body %}
+<div class="min-h-screen flex flex-col bg-white font-sans text-gray-800 w-full overflow-x-hidden">
+
+    <!-- Header Superior (Full Width) -->
+    <header class="bg-[#EC0000] text-white flex items-stretch h-[64px] shrink-0 w-full">
+        <div
+            class="w-[64px] flex items-center justify-center border-r border-red-600 cursor-pointer hover:bg-red-700 transition">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </div>
+
+        <div class="flex items-center px-4">
+            <span class="text-[22px] font-bold tracking-tighter">Santander <span
+                    class="font-normal">Empresas</span></span>
+        </div>
+
+        <div class="flex-1 flex items-center px-6">
+            <div class="relative w-full max-w-[400px]">
+                <input type="text" placeholder="O que podemos fazer pela sua Empresa?"
+                    class="w-full h-[36px] rounded-full px-4 text-sm text-gray-800 focus:outline-none placeholder-gray-500">
+                <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"></i>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4 px-6">
+            <i class="fa-solid fa-house text-lg cursor-pointer hover:text-gray-200"></i>
+            <div class="relative cursor-pointer hover:text-gray-200">
+                <i class="fa-regular fa-bell text-lg"></i>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full"></span>
+            </div>
+            <div class="border-l border-red-600 pl-4 flex items-center gap-4">
+                <div class="text-right text-[11px] leading-tight">
+                    <p class="font-bold uppercase">OLÁ, {{ user.razao_social|default:user.username }}</p>
+                    <p>Agência: {{ user.agencia }} Conta: {{ user.conta }}</p>
+                    <p>{{ user.cnpj }}</p>
+                </div>
+                <a href="{% url 'logout' %}"
+                    class="border border-white rounded-full px-4 py-1 text-[12px] font-bold hover:bg-white hover:text-[#EC0000] transition">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex flex-1 w-full">
+        <!-- Sidebar de Ícones -->
+        <aside
+            class="w-[64px] border-r border-gray-200 flex flex-col items-center py-4 gap-6 shrink-0 bg-white z-10 overflow-y-auto">
+            <a href="{% url 'painel' %}" class="text-[#EC0000]"><i
+                    class="fa-solid fa-arrow-right-arrow-left text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i
+                    class="fa-solid fa-money-bill-transfer text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-barcode text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i
+                    class="fa-solid fa-file-invoice-dollar text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-credit-card text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i
+                    class="fa-solid fa-building-columns text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-chart-pie text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i
+                    class="fa-solid fa-money-check-dollar text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-briefcase text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-receipt text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i
+                    class="fa-solid fa-money-bill-wave text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-gear text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-gift text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-question text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-headset text-lg"></i></a>
+            <a href="#" class="text-gray-500 hover:text-[#EC0000]"><i class="fa-solid fa-phone text-lg"></i></a>
+            <a href="{% url 'logout' %}" class="text-gray-500 hover:text-[#EC0000]"><i
+                    class="fa-solid fa-arrow-right-from-bracket text-lg"></i></a>
+        </aside>
+
+        <!-- Conteúdo Principal (Full Width) -->
+        <main class="flex-1 bg-[#f8f9fa] w-full">
+
+            <!-- Barra de Status Superior -->
+            <div
+                class="bg-[#e9ecef] px-8 py-2 flex justify-between items-center text-[11px] text-gray-600 border-b border-gray-300 w-full">
+                <p>{{ data_hoje|date:"l, d \d\e F \d\e Y - H\hi" }} (Horário de Brasília)</p>
+                <div class="flex gap-4">
+                    <p>Último acesso em {{ data_hoje|date:"d/m/Y - H\hi" }}</p>
+                    <a href="{% url 'login' %}" class="text-[#EC0000] hover:underline">TROCAR CONTA</a>
+                </div>
+            </div>
+
+            <div class="px-8 py-6 w-full max-w-none space-y-8">
+
+                <!-- Saudação e Botão Olho (Inicia Oculto) -->
+                <div class="flex justify-between items-center">
+                    <h1 class="text-[28px] text-gray-800">Olá, {{ user.razao_social|default:user.username }}!</h1>
+                    <i id="toggle-eye" class="fa-solid fa-eye-slash text-[#EC0000] cursor-pointer text-lg"
+                        onclick="toggleSaldos()"></i>
+                </div>
+
+                <!-- Cards de Saldo -->
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 bg-white border border-gray-300 rounded-sm divide-y md:divide-y-0 md:divide-x divide-gray-300 w-full">
+                    <div class="p-6">
+                        <p class="text-[13px] text-gray-600 mb-2">Ag {{ user.agencia }} Cc {{ user.conta }}</p>
+                        <a href="#" class="text-[13px] text-[#EC0000] underline font-medium">Consultar extrato</a>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-[13px] text-gray-600 mb-2">Saldo disponível</p>
+                        <p class="text-[18px] font-medium text-gray-800">
+                            <span class="saldo-valor" data-valor="R$ {{ saldo_fmt }}">••••••</span>
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-[13px] text-gray-600 mb-2">Saldo + Limite</p>
+                        <p class="text-[18px] font-medium text-gray-800">
+                            <span class="saldo-valor" data-valor="R$ {{ limite_total_fmt }}">••••••</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fluxo -->
+                <div>
+                    <h2 class="text-[20px] text-gray-800 mb-4">Fluxo de {{ mes_atual }}</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+                        <div class="bg-white border border-gray-300 rounded-sm p-6 flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#00b0b9] text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </div>
+                            <div>
+                                <p class="text-[13px] text-gray-600">Entradas</p>
+                                <p class="text-[16px] text-gray-800"><span class="saldo-valor"
+                                        data-valor="R$ {{ entradas_fmt }}">••••••</span></p>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-gray-300 rounded-sm p-6 flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#e6a100] text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-arrow-up"></i>
+                            </div>
+                            <div>
+                                <p class="text-[13px] text-gray-600">Saídas</p>
+                                <p class="text-[16px] text-gray-800"><span class="saldo-valor"
+                                        data-valor="R$ {{ saidas_fmt }}">••••••</span></p>
+                            </div>
+                        </div>
+                        <div class="bg-white border border-gray-300 rounded-sm p-6 flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#666666] text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-dollar-sign"></i>
+                            </div>
+                            <div>
+                                <p class="text-[13px] text-gray-600">Balanço</p>
+                                <p class="text-[16px] text-gray-800 {% if balanco_negativo %}text-red-600{% endif %}">
+                                    <span class="saldo-valor"
+                                        data-valor="{% if balanco_negativo %}-{% endif %}R$ {{ balanco_fmt }}">••••••</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Acessos Rápidos -->
+                <div>
+                    <div class="flex justify-between items-end mb-4">
+                        <h2 class="text-[20px] text-gray-800">Acessos rápidos</h2>
+                        <a href="#" class="text-[13px] text-[#EC0000] hover:underline">Personalizar acessos</a>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <a href="#"
+                                class="bg-white border border-gray-300 rounded-sm p-5 flex flex-col justify-between h-[120px] hover:border-[#EC0000] transition">
+                                <i class="fa-regular fa-circle-check text-[#EC0000] text-xl"></i>
+                                <div>
+                                    <p class="text-[11px] text-gray-500">Pendências</p>
+                                    <p class="text-[13px] font-medium text-gray-800">Gerenciar</p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                class="bg-white border border-gray-300 rounded-sm p-5 flex flex-col justify-between h-[120px] hover:border-[#EC0000] transition">
+                                <i class="fa-solid fa-money-bill-transfer text-[#EC0000] text-xl"></i>
+                                <div>
+                                    <p class="text-[11px] text-gray-500">Pagamentos e transferências</p>
+                                    <p class="text-[13px] font-medium text-gray-800">Pagar e transferir com chave Pix
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                class="bg-white border border-gray-300 rounded-sm p-5 flex flex-col justify-between h-[120px] hover:border-[#EC0000] transition">
+                                <i class="fa-solid fa-barcode text-[#EC0000] text-xl"></i>
+                                <div>
+                                    <p class="text-[11px] text-gray-500">Boletos, contas e tributos</p>
+                                    <p class="text-[13px] font-medium text-gray-800">Pagar com código de barras</p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                class="bg-white border border-gray-300 rounded-sm p-5 flex flex-col justify-between h-[120px] hover:border-[#EC0000] transition">
+                                <i class="fa-solid fa-file-invoice-dollar text-[#EC0000] text-xl"></i>
+                                <div>
+                                    <p class="text-[11px] text-gray-500">Boletos eletrônicos (DDA)</p>
+                                    <p class="text-[13px] font-medium text-gray-800">Consultar</p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                class="bg-white border border-gray-300 rounded-sm p-5 flex flex-col justify-between h-[120px] hover:border-[#EC0000] transition">
+                                <i class="fa-solid fa-money-check-dollar text-[#EC0000] text-xl"></i>
+                                <div>
+                                    <p class="text-[11px] text-gray-500">2ª via de comprovantes</p>
+                                    <p class="text-[13px] font-medium text-gray-800">Consultar comprovantes</p>
+                                </div>
+                            </a>
+                            <a href="#"
+                                class="bg-white border border-gray-300 rounded-sm p-5 flex flex-col justify-between h-[120px] hover:border-[#EC0000] transition">
+                                <i class="fa-solid fa-chart-pie text-[#EC0000] text-xl"></i>
+                                <div>
+                                    <p class="text-[11px] text-gray-500">Painel de investimentos</p>
+                                    <p class="text-[13px] font-medium text-gray-800">Consultar</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Banner Vermelho -->
+                        <div
+                            class="bg-[#EC0000] rounded-sm p-8 flex flex-col justify-center text-white relative overflow-hidden">
+                            <div class="absolute inset-0 opacity-10 flex justify-end">
+                                <div
+                                    class="w-1/2 h-full border-l-[40px] border-white transform skew-x-[-20deg] translate-x-10">
+                                </div>
+                            </div>
+                            <div class="relative z-10">
+                                <h3 class="text-[18px] font-bold mb-2">CUIDADO COM GOLPES:</h3>
+                                <p class="text-[15px] leading-relaxed">Nunca ligamos ou enviamos links para atualização
+                                    de apps. Fique atento.</p>
+                            </div>
+                            <div class="absolute right-10 bottom-0 text-[150px] font-bold leading-none opacity-20">!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Para sua empresa -->
+                <div>
+                    <h2 class="text-[20px] text-gray-800 mb-4">Para sua empresa</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+
+                        <div class="bg-white border border-gray-300 rounded-sm flex flex-col">
+                            <div class="border-b border-gray-200 px-6 py-3 flex items-center gap-2">
+                                <i class="fa-regular fa-file-lines text-gray-500"></i>
+                                <h3 class="font-bold text-[15px] text-gray-800">Maquininha Getnet</h3>
+                            </div>
+                            <div class="p-6 flex-1 flex gap-6 items-center">
+                                <img src="/static/images/getnet-maquininha.png" alt="Maquininha"
+                                    class="w-[80px] object-contain" onerror="this.style.display='none'">
+                                <div>
+                                    <p class="text-[14px] text-gray-800 font-medium mb-1">Você já possui um plano Getnet
+                                    </p>
+                                    <p class="text-[13px] text-gray-600 leading-relaxed">Verificamos que você já possui
+                                        credenciamento ativo na Getnet. Precisa de mais máquinas?</p>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 mx-6"></div>
+                            <div class="px-6 py-4 text-center">
+                                <a href="#" class="text-[13px] text-[#EC0000] underline hover:text-red-800">Solicitar
+                                    outra máquina</a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-300 rounded-sm flex flex-col">
+                            <div class="border-b border-gray-200 px-6 py-3 flex items-center gap-2">
+                                <i class="fa-solid fa-money-bill-trend-up text-gray-500"></i>
+                                <h3 class="font-bold text-[15px] text-gray-800">Antecipação Getnet</h3>
+                            </div>
+                            <div class="p-6 flex-1 flex gap-6 items-center">
+                                <img src="/static/images/getnet-antecipacao.png" alt="Antecipação"
+                                    class="w-[80px] object-contain" onerror="this.style.display='none'">
+                                <div>
+                                    <p class="text-[14px] text-gray-800 font-medium mb-1">Horário não permitido.</p>
+                                    <p class="text-[13px] text-gray-600 leading-relaxed">A contratação pode ser
+                                        realizada entre 9h e 18h59min.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Precisa de ajuda? -->
+                <div>
+                    <h2 class="text-[20px] text-gray-800 mb-4">Precisa de ajuda?</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                        <a href="#"
+                            class="bg-white border border-gray-300 rounded-sm p-4 flex items-center gap-3 hover:border-[#EC0000] transition">
+                            <i class="fa-regular fa-comment-dots text-gray-600"></i>
+                            <span class="text-[14px] text-gray-800">Atendimento Santander</span>
+                        </a>
+                        <a href="#"
+                            class="bg-white border border-gray-300 rounded-sm p-4 flex items-center gap-3 hover:border-[#EC0000] transition">
+                            <i class="fa-solid fa-store text-gray-600"></i>
+                            <span class="text-[14px] text-gray-800">Localizar agências e caixas</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Acordeões de Ajuda -->
+            <div class="bg-white border-t border-gray-200 w-full">
+                <div class="w-full">
+                    <details class="group border-b border-gray-200">
+                        <summary
+                            class="flex items-center justify-between px-8 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-headset text-gray-500 text-xl"></i>
+                                <div>
+                                    <h3 class="font-bold text-[15px] text-gray-800">Central de Atendimento</h3>
+                                    <p class="text-[13px] text-gray-500">Consultas, informações e serviços
+                                        transacionais.</p>
+                                </div>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                        </summary>
+                        <div class="px-16 pb-6 text-[13px] text-gray-600">
+                            Conteúdo da Central de Atendimento.
+                        </div>
+                    </details>
+
+                    <details class="group border-b border-gray-200">
+                        <summary
+                            class="flex items-center justify-between px-8 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-phone text-gray-500 text-xl"></i>
+                                <div>
+                                    <h3 class="font-bold text-[15px] text-gray-800">SAC</h3>
+                                    <p class="text-[13px] text-gray-500">Reclamações, Cancelamentos, Sugestões e
+                                        Informações Gerais.</p>
+                                </div>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                        </summary>
+                        <div class="px-16 pb-6 text-[13px] text-gray-600">
+                            Conteúdo do SAC.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary
+                            class="flex items-center justify-between px-8 py-6 cursor-pointer [&_summary::-webkit-details-marker]:hidden">
+                            <div class="flex items-center gap-4">
+                                <i class="fa-solid fa-bullhorn text-gray-500 text-xl"></i>
+                                <div>
+                                    <h3 class="font-bold text-[15px] text-gray-800">Ouvidoria</h3>
+                                    <p class="text-[13px] text-gray-500">Consulta de reclamação feita no SAC ou
+                                        insatisfação com uma solução.</p>
+                                </div>
+                            </div>
+                            <i
+                                class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                        </summary>
+                        <div class="px-16 pb-6 text-[13px] text-gray-600">
+                            Conteúdo da Ouvidoria.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="bg-[#eeeeee] py-6 text-center border-t border-gray-300 w-full">
+                <p class="text-[11px] text-gray-500">
+                    Banco Santander (Brasil) S.A. - CNPJ: 90.400.888/0001-42 Instituição financeira autorizada a
+                    funcionar pelo Banco Central do Brasil.<br>
+                    Av. Presidente Juscelino Kubitschek, 2041 / 2235 - Bloco A, Vila Olímpia, São Paulo /SP - CEP
+                    04543-011
+                </p>
+            </footer>
+        </main>
+    </div>
+</div>
+
+<script>
+    function toggleSaldos() {
+        const eyeIcon = document.getElementById('toggle-eye');
+        const valores = document.querySelectorAll('.saldo-valor');
+
+        if (eyeIcon.classList.contains('fa-eye-slash')) {
+            // Mostrar
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+
+            valores.forEach(el => {
+                el.innerText = el.dataset.valor;
+            });
+        } else {
+            // Ocultar
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+
+            valores.forEach(el => {
+                el.innerText = '••••••';
+            });
+        }
+    }
+</script>
+{% endblock %}

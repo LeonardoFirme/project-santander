@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}Internet Banking Empresarial | Acesso{% endblock %}
+{% block body %}
+<div class="min-h-screen flex flex-col bg-[#f4f4f4] font-sans">
+
+    <header class="bg-[#cc0000] text-white h-[70px] flex items-center justify-between px-6 lg:px-10">
+        <div class="flex items-center gap-2">
+            <img src="/static/images/Logo-Header.png" alt="Logo" class="w-auto h-auto object-contain">
+        </div>
+        <div class="flex items-center gap-6">
+            <span class="text-[17px] font-medium">Internet Banking Empresarial</span>
+            <a href="{% url 'login' %}" class="border border-white rounded-full px-4 py-1 text-[13px] hover:bg-white hover:text-[#cc0000] transition">Sair</a>
+        </div>
+    </header>
+
+    <main class="flex-1 flex justify-center items-start pt-12 pb-24">
+        <div class="w-full max-w-[600px]">
+
+            {% if erro %}
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4 text-sm">
+                {{ erro }}
+            </div>
+            {% endif %}
+
+            <form method="post" class="bg-white border border-gray-300 shadow-sm mb-6">
+                {% csrf_token %}
+
+                <div class="px-6 py-3 border-b border-gray-200 flex gap-6">
+                    <p class="text-[12px] text-gray-700"><strong class="font-bold">Agência:</strong> {{ agencia }}</p>
+                    <p class="text-[12px] text-gray-700"><strong class="font-bold">Conta:</strong> {{ conta }}</p>
+                </div>
+
+                <div class="p-6 flex flex-col sm:flex-row gap-6 items-center">
+                    <div class="flex items-center gap-3 w-full sm:w-1/2">
+                        <label class="text-[13px] text-gray-600 whitespace-nowrap">Usuário</label>
+                        <input type="text" name="username" required class="w-full h-[32px] border border-gray-400 px-2 text-sm focus:outline-none focus:border-[#cc0000] focus:ring-1 focus:ring-[#cc0000]">
+                    </div>
+                    <div class="flex items-center gap-3 w-full sm:w-1/2">
+                        <label class="text-[13px] text-gray-600 whitespace-nowrap">Senha</label>
+                        <input type="password" name="password" required class="w-full h-[32px] border border-gray-400 px-2 text-sm focus:outline-none focus:border-[#cc0000] focus:ring-1 focus:ring-[#cc0000]">
+                    </div>
+                </div>
+
+                <details class="group px-6 border-t border-gray-200">
+                    <summary class="flex items-center justify-between py-4 cursor-pointer text-[13px] text-gray-600 [&_summary::-webkit-details-marker]:hidden">
+                        Clique aqui para apresentação do Teclado Virtual
+                        <i class="fa-solid fa-chevron-down text-[10px] group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="pb-4 text-sm text-gray-500">
+                        (Teclado virtual indisponível neste ambiente acadêmico)
+                    </div>
+                </details>
+
+                <div class="flex items-center justify-between px-6 py-4 border-t border-gray-200">
+                    <div class="flex items-center">
+                        <img src="/static/images/entrust_site_seal.png" alt="Entrust" class="w-[50px] h-[50px] object-contain">
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        <a href="#" class="text-[13px] text-gray-600 hover:text-[#cc0000]">Esqueci minha senha ou usuário</a>
+                        <div class="flex gap-3">
+                            <a href="{% url 'login' %}" class="bg-[#999999] text-white font-semibold px-6 py-2 rounded-sm text-sm hover:bg-gray-600 transition">Cancelar</a>
+                            <button type="submit" class="bg-[#4a5a64] text-white font-semibold px-8 py-2 rounded-sm text-sm hover:bg-[#3c4a53] transition">Entrar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+    <div class="bg-[#eeeeee] py-8 text-[12px] text-gray-600">
+        <div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <p class="mb-3">Esqueceu usuário ou senha de acesso?</p>
+                <div class="flex items-start gap-2">
+                    <i class="fa-solid fa-phone text-2xl text-gray-400 mt-1"></i>
+                    <div>
+                        <p class="font-bold text-gray-800">Central de atendimento Santander Empresarial</p>
+                        <p>Capitais: 4004 2125</p>
+                        <p>Demais localidades: 0800 726 2125</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="mb-3">&nbsp;</p>
+                <div class="flex items-start gap-2">
+                    <i class="fa-solid fa-users text-2xl text-gray-400 mt-1"></i>
+                    <div>
+                        <p class="font-bold text-gray-800">Serviços de atendimento ao consumidor</p>
+                        <p>Atendimento 24 horas por dia, todos os dias</p>
+                        <p>Ligue para: <strong>0800 762 7777</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="mb-3">&nbsp;</p>
+                <div class="flex items-start gap-2">
+                    <i class="fa-solid fa-bullhorn text-2xl text-gray-400 mt-1"></i>
+                    <div>
+                        <p class="font-bold text-gray-800">Ouvidoria</p>
+                        <p>Disponível das 9h às 18h, de segunda a sexta-feira, exceto feriados.</p>
+                        <p>Entre em contato com a nossa Ouvidoria pelo telefone 0800 726 0322.</p>
+                        <p>Para pessoas com deficiência auditiva e de fala, ligue para 0800 771 0301.</p>
+                        <p>No exterior, ligue a cobrar para: 55 (11) 3012 0322.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-[#cc0000] text-white py-3 px-4 text-center">
+        <p class="text-[12.5px] font-medium leading-relaxed">
+            Banco Santander (Brasil) S.A. - CNPJ: 90.400.888/0001-42 Instituição financeira autorizada a funcionar pelo Banco Central do Brasil.<br>
+            Av. Presidente Juscelino Kubitschek, 2041 / 2235 - Bloco A, Vila Olímpia, São Paulo /SP - CEP 04543-011
+        </p>
+    </footer>
+
+</div>
+{% endblock %}

@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Internet Banking Empresarial | Santander Empresas{% endblock %}
+{% block body %}
+<div class="flex flex-col min-h-screen">
+    {% include "includes/header.html" %}
+
+    <section class="bg-white py-16 md:py-24">
+        <div class="container mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <p class="text-[15px] font-medium text-gray-500 mb-4">Internet Banking Empresarial Santander</p>
+                <h1 class="text-[44px] md:text-[56px] font-bold text-gray-900 leading-[1.1] mb-8">
+                    Gerencie sua conta PJ com o Internet Banking Santander
+                </h1>
+                <p class="text-[19px] text-gray-600 mb-10 leading-relaxed max-w-xl">
+                    Acesse sua conta Santander Empresas pelo computador e faça Pix, pagamentos e transferências com segurança e praticidade.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="{% url 'login' %}" class="bg-[#EC0000] text-white font-semibold text-[16px] px-8 py-4 rounded-full hover:bg-red-700 transition">Acessar conta PJ</a>
+                    <a href="{% url 'escolha_conta' %}" class="border border-gray-300 text-gray-800 font-semibold text-[16px] px-8 py-4 rounded-full hover:bg-gray-50 transition">Abrir conta PJ</a>
+                </div>
+            </div>
+            <div class="relative h-[400px] md:h-[520px] rounded-2xl overflow-hidden bg-gray-200">
+                <img src="{% static 'images/UUID.avif' %}" alt="Mulher usando notebook" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white pb-24">
+        <div class="container mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-16 text-center">
+            <div class="px-4">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[#EC0000] flex items-center justify-center text-[#EC0000] text-3xl">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                </div>
+                <h3 class="text-[22px] font-bold text-gray-900 mb-4">Mais controle financeiro</h3>
+                <p class="text-[16px] text-gray-600 leading-relaxed">
+                    Acompanhe saldo, extrato, pagamentos e recebimentos em tempo real. Tenha uma visão clara do fluxo de caixa para tomar decisões com mais segurança.
+                </p>
+            </div>
+            <div class="px-4">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[#EC0000] flex items-center justify-center text-[#EC0000] text-3xl">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <h3 class="text-[22px] font-bold text-gray-900 mb-4">Agilidade na rotina do negócio</h3>
+                <p class="text-[16px] text-gray-600 leading-relaxed">
+                    Pague fornecedores, tributos e boletos, faça transferências, Pix e gerencie autorizações em um só lugar.
+                </p>
+            </div>
+            <div class="px-4">
+                <div class="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-[#EC0000] flex items-center justify-center text-[#EC0000] text-3xl">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <h3 class="text-[22px] font-bold text-gray-900 mb-4">Gestão com múltiplos acessos</h3>
+                <p class="text-[16px] text-gray-600 leading-relaxed">
+                    Defina perfis e níveis de acesso para sua equipe, com mais organização e controle nas operações.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50 py-24">
+        <div class="max-w-[1000px] mx-auto px-6">
+            <h2 class="text-[40px] md:text-[48px] font-bold text-gray-900 text-center mb-12 leading-tight">Como acessar o Internet Banking Empresarial Santander</h2>
+            <div class="space-y-4">
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-7 cursor-pointer text-[18px] font-medium text-gray-800">
+                        Já sou cliente
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-7 pb-7 text-gray-600 text-[15px] leading-relaxed">
+                        <ol class="list-decimal ml-5 space-y-2">
+                            <li>Clique em “Acesse sua conta”.</li>
+                            <li>Informe seu CNPJ ou CPF vinculado.</li>
+                            <li>Digite sua senha de acesso.</li>
+                            <li>Confirme sua identidade pelo App Santander Empresas.</li>
+                        </ol>
+                    </div>
+                </details>
+                <details class="group bg-white rounded-xl shadow-sm border border-gray-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-7 cursor-pointer text-[18px] font-medium text-gray-800">
+                        Ainda não sou cliente
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-7 pb-7 text-gray-600 text-[15px] leading-relaxed">
+                        <ol class="list-decimal ml-5 space-y-2">
+                            <li>Clique em “Abrir conta PJ”.</li>
+                            <li>Informe seu CNPJ e clique em “Continuar”.</li>
+                            <li>Coloque suas informações básicas de contato e informe o código enviado por SMS.</li>
+                            <li>Preencha os dados da empresa.</li>
+                            <li>Personalize sua conta.</li>
+                            <li>Revise as informações para concluir.</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#1e1e1e] text-white py-28">
+        <div class="w-full container mx-auto px-6 lg:px-12 grid md:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+
+            <div class="flex flex-col py-0 space-y-6">
+                <h2 class="text-[46px] md:text-[52px] font-bold leading-[1.1] tracking-tight">App Santander Empresas</h2>
+                <p class="text-[18px] text-gray-200 font-medium mb-1">Acompanhe e autorize operações direto do celular.</p>
+            </div>
+
+            <div class="relative h-[350px] md:h-[400px] rounded-[24px] overflow-hidden">
+                <img src="{% static 'images/UUID-1.avif' %}" alt="App Santander" class="w-full h-full object-cover">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-white py-24">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-[40px] md:text-[48px] font-bold text-gray-900 mb-4 leading-tight">Gestão de usuários no Internet Banking Empresarial</h2>
+                <p class="text-[17px] text-gray-600">Conheça algumas das medidas que ajudam a proteger sua conta:</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-10 border border-gray-100">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-[#EC0000] text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <h3 class="text-[22px] font-bold text-gray-900 mb-3">Módulo Administrativo</h3>
+                    <p class="text-[16px] text-gray-600 leading-relaxed">
+                        Toda a gestão do Internet Banking Empresarial fica centralizada no Módulo Administrativo. Em um único lugar, é possível gerenciar usuários, perfis, senhas, dados cadastrais e tokens.
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-10 border border-gray-100">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-[#EC0000] text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-[22px] font-bold text-gray-900 mb-3">Usuário Master</h3>
+                    <p class="text-[16px] text-gray-600 leading-relaxed">
+                        O usuário Master tem acesso completo à conta, podendo realizar consultas e transações no Internet Banking. Ele também é responsável por habilitar o ID Santander Empresas no App, que funciona como uma senha dinâmica para realizar operações com segurança.
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-10 border border-gray-100">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-[#EC0000] text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3 class="text-[22px] font-bold text-gray-900 mb-3">Usuário Secundário</h3>
+                    <p class="text-[16px] text-gray-600 leading-relaxed">
+                        Permite criar usuários com acessos personalizados, de acordo com suas funções. Ajuda a organizar melhor as atividades e ter mais controle sobre as operações.
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-10 border border-gray-100">
+                    <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-[#EC0000] text-2xl mb-6 shadow-sm">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-[22px] font-bold text-gray-900 mb-3">Perfil de Autorização</h3>
+                    <p class="text-[16px] text-gray-600 leading-relaxed">
+                        Após serem realizadas, as transações ficam pendentes de autorização. O controle é feito por usuários com Perfil de Autorização, responsáveis por liberar a efetivação. Os Perfis de Autorização definem regras, limites e níveis de aprovação para cada tipo de transação.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#1a1a1a] py-24 text-white">
+        <div class="container mx-auto px-6 lg:px-12 grid md:grid-cols-[1fr_2fr] gap-16">
+            <div>
+                <h2 class="text-[52px] font-bold mb-6 leading-[1.1]">Dúvidas<br>Frequentes</h2>
+                <p class="text-[16px] text-gray-400 mb-8">Precisa de mais ajuda?</p>
+                <a href="#" class="inline-block border border-[#EC0000] text-[#EC0000] font-semibold px-8 py-3 rounded-full text-[15px] hover:bg-[#EC0000] hover:text-white transition">Fale conosco</a>
+            </div>
+            <div class="space-y-3">
+                <details class="group bg-[#2a2a2a] rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-[16px]">
+                        Quem pode acessar o Internet Banking Empresarial?
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-[15px] text-gray-400">O acesso pode ser realizado por usuários cadastrados com diferentes perfis. Cada empresa define quem pode consultar informações, realizar operações ou autorizar transações.</div>
+                </details>
+                <details class="group bg-[#2a2a2a] rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-[16px]">
+                        É possível ter mais de um usuário com acesso à conta?
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-[15px] text-gray-400">Sim. É possível cadastrar usuários secundários com permissões específicas, de acordo com as funções de cada usuário.</div>
+                </details>
+                <details class="group bg-[#2a2a2a] rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-[16px]">
+                        Como cadastrar um usuário secundário?
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-[15px] text-gray-400">O cadastro deve ser realizado por um usuário master no Internet Banking Empresarial. Durante o processo, é possível definir perfis de acesso e autorização conforme as necessidades da empresa.</div>
+                </details>
+                <details class="group bg-[#2a2a2a] rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-[16px]">
+                        Quantos usuários podem acessar a conta?
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-[15px] text-gray-400">O Internet Banking Empresarial permite o cadastro de até 10 usuários master. Para usuários secundários, não há um limite pré-definido. A quantidade de acessos pode ser configurada de acordo com a necessidade operacional da empresa.</div>
+                </details>
+                <details class="group bg-[#2a2a2a] rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-[16px]">
+                        Como funciona a autorização de transações?
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-[15px] text-gray-400">As transações podem ficar pendentes até a aprovação. Usuários com perfil de autorização são responsáveis por validar e liberar as operações, conforme as regras definidas pela empresa.</div>
+                </details>
+                <details class="group bg-[#2a2a2a] rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-[16px]">
+                        O que é e como habilitar o ID Santander Empresas?
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-[15px] text-gray-400">O ID Santander Empresas é uma solução de segurança utilizada para validar operações no Internet Banking Empresarial. A habilitação pode ser realizada pelo aplicativo Santander Empresas.</div>
+                </details>
+                <details class="group bg-[#2a2a2a] rounded-xl [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer font-medium text-[16px]">
+                        Como recuperar a senha do Internet Banking Empresarial?
+                        <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-gray-400"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-[15px] text-gray-400">A recuperação da senha pode ser realizada por meio dos canais de autosserviço do Santander Empresas. Para redefinir o acesso, o usuário deverá passar pelas etapas de validação de segurança e cadastrar uma nova senha.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white pt-20 pb-10 text-[13px] text-gray-500">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h3 class="text-[32px] font-bold text-gray-900 mb-4 leading-tight">Baixe nosso app</h3>
+                    <p class="mb-6 text-[14px]">Acesse sua conta quando quiser e de onde estiver com praticidade e segurança.</p>
+                    <div class="flex gap-3">
+                        <a href="#" class="block h-11 w-36 bg-black text-white rounded-lg flex items-center justify-center text-[12px] gap-2"><i class="fa-brands fa-google-play text-base"></i> Google Play</a>
+                        <a href="#" class="block h-11 w-36 bg-black text-white rounded-lg flex items-center justify-center text-[12px] gap-2"><i class="fa-brands fa-apple text-base"></i> App Store</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-5 text-[14px]">Sobre o Santander</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-[#EC0000]">Sobre nós</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Educação Financeira</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Sustentabilidade</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Relação com Investidores</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Análise Econômica</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Política de Cookies</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Privacidade</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-5 text-[14px]">Precisando de ajuda?</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-[#EC0000]">Telefones Santander</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Aplicativos</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">SAC</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Atendimento em Libras</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Blog Santander</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 mb-5 text-[14px]">Segurança</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-[#EC0000]">Alerta de segurança</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Bloqueio Imediato</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Garantia Santander</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Canais não seguros</a></li>
+                        <li><a href="#" class="hover:text-[#EC0000]">Central de Segurança PJ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <svg class="h-6 w-auto text-[#EC0000]" viewBox="0 0 100 30" fill="currentColor">
+                        <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="#EC0000"/>
+                        <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="#EC0000" transform="rotate(45 20 15)"/>
+                        <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="#EC0000" transform="rotate(90 20 15)"/>
+                        <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="#EC0000" transform="rotate(135 20 15)"/>
+                    </svg>
+                    <span class="font-bold text-gray-900 text-xl tracking-tighter">Santander</span>
+                </div>
+                <p class="text-center text-[11px] text-gray-400 max-w-3xl leading-tight">
+                    O Banco Santander (Brasil) S.A., CNPJ 90.400.888/0001-42. Av. Presidente Juscelino Kubitschek, 2041/2235 - Vila Olímpia - São Paulo/SP.
+                </p>
+                <div class="flex gap-5 text-gray-400 text-xl">
+                    <a href="#" class="hover:text-gray-600"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-gray-600"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-gray-600"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-gray-600"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="hover:text-gray-600"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}

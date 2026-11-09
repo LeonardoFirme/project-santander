@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Internet Banking Empresarial | Login{% endblock %}
+{% block body %}
+<div class="min-h-screen flex flex-col bg-[#f4f4f4] font-sans">
+
+    <header class="bg-[#cc0000] text-white h-[80px] flex items-center justify-between px-6 lg:px-10">
+        <div class="flex items-center gap-2">
+            <img src="/static/images/Logo-Header.png" alt="Logo" class="w-auto h-auto object-contain">
+        </div>
+        <div class="text-[15px] font-medium">
+            Internet Banking Empresarial
+        </div>
+    </header>
+
+    <main class="flex-1 flex justify-center items-start pt-16 pb-24">
+        <div class="w-full max-w-[420px]">
+            <form method="post" class="bg-white border border-gray-300 shadow-sm mb-6">
+                {% csrf_token %}
+                <div class="p-8 space-y-5">
+                    <div>
+                        <label class="block text-[13px] text-gray-600 mb-1">Agência</label>
+                        <input type="text" name="agencia" required class="w-full h-[38px] border border-gray-400 px-3 text-sm focus:outline-none focus:border-[#cc0000] focus:ring-1 focus:ring-[#cc0000]">
+                    </div>
+                    <div>
+                        <label class="block text-[13px] text-gray-600 mb-1">Conta</label>
+                        <input type="text" name="conta" required class="w-full h-[38px] border border-gray-400 px-3 text-sm focus:outline-none focus:border-[#cc0000] focus:ring-1 focus:ring-[#cc0000]">
+                    </div>
+                    <button type="submit" class="w-full bg-[#4a5a64] hover:bg-[#3c4a53] text-white font-semibold h-[38px] mt-2 rounded-sm transition-colors text-sm">
+                        Continuar
+                    </button>
+                </div>
+                <div class="px-8 pb-8 flex items-center justify-between border-t border-transparent">
+                    <div class="text-[11px] text-gray-600 leading-tight">
+                        <p class="font-bold text-gray-800 mb-0.5">Central de atendimento Santander Empresarial</p>
+                        <p>Capitais: 4004 2125</p>
+                        <p>Demais localidades: 0800 726 2125</p>
+                    </div>
+                    <img src="/static/images/entrust_site_seal.png" alt="Entrust" class="w-[52px] h-[52px] object-contain">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-[#cc0000] text-white py-3 px-4 text-center">
+        <p class="text-[12.5px] font-medium leading-relaxed">
+            Banco Santander (Brasil) S.A. - CNPJ: 90.400.888/0001-42 Instituição financeira autorizada a funcionar pelo Banco Central do Brasil.<br>
+            Av. Presidente Juscelino Kubitschek, 2041 / 2235 - Bloco A, Vila Olímpia, São Paulo /SP - CEP 04543-011
+        </p>
+    </footer>
+
+</div>
+{% endblock %}

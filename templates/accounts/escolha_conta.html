@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Abra sua conta Santander{% endblock %}
+{% block body %}
+<div class="h-screen flex flex-col bg-white overflow-hidden font-sans">
+    <div class="flex-1 flex flex-col w-full h-full transform scale-[1.03] origin-top">
+
+        {% include "includes/header.html" %}
+
+        <main class="flex-1 flex flex-col justify-center px-6 overflow-hidden relative">
+            <div class="max-w-[1050px] w-full mx-auto text-center mb-8">
+                <p class="text-[16px] font-bold text-gray-800 mb-2">Pra você ou para sua empresa</p>
+                <h1 class="text-[50px] md:text-[60px] font-bold text-gray-900 mb-3 tracking-tight">Abra sua conta Santander</h1>
+                <p class="text-[18px] text-gray-600 max-w-3xl mx-auto">Escolha a modalidade que se encaixa na sua necessidade hoje e contrate sem burocracia, 100% online e com segurança.</p>
+            </div>
+
+            <div class="max-w-[1150px] w-full mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-[#f4f4f4] rounded-[24px] overflow-hidden flex flex-col shadow-sm">
+                    <div class="h-[200px] relative bg-gray-300 shrink-0">
+                        <img src="{% static 'img/pf-card.jpg' %}" alt="Pessoa Física" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-medium pointer-events-none">Imagem Pessoa Física</div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col">
+                        <h2 class="text-[26px] font-bold text-gray-900 mb-2">Conta Pessoa Física</h2>
+                        <p class="text-[16px] text-gray-600 leading-relaxed mb-6 flex-1">
+                            Escolha entre as contas Free, Plus ou Select Plus e um cartão que pode acumular pontos, cashback, milhas ou anuidade zero.
+                        </p>
+                        <div>
+                            <a href="{% url 'register' %}" class="inline-block bg-[#EC0000] text-white font-semibold px-6 py-2.5 rounded-full hover:bg-red-700 transition text-[14px]">Conhecer e abrir conta</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#f4f4f4] rounded-[24px] overflow-hidden flex flex-col shadow-sm">
+                    <div class="h-[200px] relative bg-gray-300 shrink-0">
+                        <img src="{% static 'img/pj-card.jpg' %}" alt="Conta Empresas" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-medium pointer-events-none">Imagem Empresas</div>
+                    </div>
+                    <div class="p-7 flex-1 flex flex-col">
+                        <h2 class="text-[26px] font-bold text-gray-900 mb-2">Conta Empresas</h2>
+                        <p class="text-[16px] text-gray-600 leading-relaxed mb-6 flex-1">
+                            Ideal para empresas de todos os portes com até 100% de isenção no pacote de tarifa, serviços que facilitam sua rotina e atendimento especializado quando precisar.
+                        </p>
+                        <div>
+                            <a href="{% url 'abrir_conta_pj' %}" class="inline-block bg-[#EC0000] text-white font-semibold px-6 py-2.5 rounded-full hover:bg-red-700 transition text-[14px]">Conhecer e abrir conta</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-[#222222] text-white pt-8 pb-4 shrink-0">
+            <div class="max-w-[1300px] mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-[1fr_3fr] gap-8 mb-8">
+                    <div>
+                        <h3 class="text-[32px] font-bold mb-2 leading-tight tracking-tight">Baixe nosso app</h3>
+                        <p class="text-[14px] text-gray-300 mb-4">Acesse sua conta quando quiser e de onde estiver com praticidade e segurança.</p>
+                        <div class="flex gap-3">
+                            <a href="#" class="block h-[40px] w-[130px] bg-black border border-gray-600 rounded flex items-center px-3 gap-2 hover:bg-gray-900 transition">
+                                <i class="fa-brands fa-google-play text-xl"></i>
+                                <div class="flex flex-col">
+                                    <span class="text-[8px] leading-none text-gray-400">BAIXE NA</span>
+                                    <span class="text-[12px] font-semibold leading-none mt-0.5">Google Play</span>
+                                </div>
+                            </a>
+                            <a href="#" class="block h-[40px] w-[130px] bg-black border border-gray-600 rounded flex items-center px-3 gap-2 hover:bg-gray-900 transition">
+                                <i class="fa-brands fa-apple text-2xl"></i>
+                                <div class="flex flex-col">
+                                    <span class="text-[8px] leading-none text-gray-400">Baixar na</span>
+                                    <span class="text-[12px] font-semibold leading-none mt-0.5">App Store</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="font-bold text-white mb-3 text-[14px]">Sobre o Santander</h4>
+                            <ul class="space-y-2 text-[13px] text-gray-300">
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Sobre nós</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Educação Financeira</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Trabalhe Conosco</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Sustentabilidade</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Relação com Investidores</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Análise econômica</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Sala de Imprensa</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Política de Cookies</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Privacidade</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Fundeb</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-3 text-[14px]">Precisando de ajuda?</h4>
+                            <ul class="space-y-2 text-[13px] text-gray-300">
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Telefones Santander</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Agências</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">S.A.C</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Ouvidoria</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Atendimento em Libras</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Blog Santander</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white mb-3 text-[14px]">Segurança</h4>
+                            <ul class="space-y-2 text-[13px] text-gray-300">
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Alerta de segurança</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Bloqueio Imediato</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Compras suspeitas</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Cuidado com golpes</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Como se proteger</a></li>
+                                <li><a href="#" class="hover:text-white underline underline-offset-4 decoration-gray-600 hover:decoration-white transition">Central de Segurança PJ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-700 pt-5 flex flex-col lg:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-2">
+                        <svg class="h-6 w-auto text-white" viewBox="0 0 100 30" fill="currentColor">
+                            <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white"/>
+                            <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white" transform="rotate(45 20 15)"/>
+                            <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white" transform="rotate(90 20 15)"/>
+                            <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white" transform="rotate(135 20 15)"/>
+                        </svg>
+                        <span class="font-bold text-white text-xl tracking-tighter">Santander</span>
+                    </div>
+
+                    <p class="text-center text-[11px] text-gray-400 max-w-lg leading-tight">
+                        © Banco Santander (Brasil) S.A., CNPJ: 90.400.888/0001-42<br>
+                        Av. Presidente Juscelino Kubitschek, 2041/2235 – Vila Olímpia – São Paulo/SP.
+                    </p>
+
+                    <div class="flex gap-3">
+                        <a href="#" class="w-[32px] h-[32px] bg-white text-[#222] rounded-full flex items-center justify-center text-md hover:bg-gray-200 transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-[32px] h-[32px] bg-white text-[#222] rounded-full flex items-center justify-center text-md hover:bg-gray-200 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-[32px] h-[32px] bg-white text-[#222] rounded-full flex items-center justify-center text-md hover:bg-gray-200 transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-[32px] h-[32px] bg-white text-[#222] rounded-full flex items-center justify-center text-md hover:bg-gray-200 transition"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="w-[32px] h-[32px] bg-white text-[#222] rounded-full flex items-center justify-center text-md hover:bg-gray-200 transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+{% endblock %}

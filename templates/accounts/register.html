@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Complete seu cadastro | Santander Empresas{% endblock %}
+{% block body %}
+<div class="min-h-screen flex flex-col bg-[#f4f4f4] font-sans">
+    <header class="bg-[#EC0000] text-white h-[60px] flex items-center justify-center px-6">
+        <a href="/" class="flex items-center gap-2">
+            <svg class="h-7 w-auto text-white" viewBox="0 0 100 30" fill="currentColor">
+                <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white"/>
+                <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white" transform="rotate(45 20 15)"/>
+                <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white" transform="rotate(90 20 15)"/>
+                <path d="M10 15 A 10 10 0 0 0 30 15 A 10 10 0 0 0 10 15 Z" fill="white" transform="rotate(135 20 15)"/>
+            </svg>
+            <span class="text-xl font-bold tracking-tighter">Santander</span>
+        </a>
+    </header>
+
+    <main class="flex-1 flex justify-center py-12 px-4">
+        <div class="w-full max-w-[500px]">
+            <div class="text-center mb-8">
+                <h1 class="text-[24px] font-bold text-gray-900 mb-2">Complete seu cadastro</h1>
+                <p class="text-[15px] text-gray-600">Preencha os dados da sua empresa para abrir a conta PJ.</p>
+            </div>
+
+            <form method="post" class="bg-white rounded-xl shadow-sm p-8 border border-gray-200 space-y-4">
+                {% csrf_token %}
+                <div>
+                    <label class="block text-[13px] text-gray-600 mb-1">Usuário (Login)</label>
+                    <input type="text" name="username" required class="w-full h-[42px] border border-gray-400 rounded px-3 text-sm focus:outline-none focus:border-[#EC0000] focus:ring-1 focus:ring-[#EC0000]">
+                </div>
+                <div>
+                    <label class="block text-[13px] text-gray-600 mb-1">Senha</label>
+                    <input type="password" name="password" required class="w-full h-[42px] border border-gray-400 rounded px-3 text-sm focus:outline-none focus:border-[#EC0000] focus:ring-1 focus:ring-[#EC0000]">
+                </div>
+                <div>
+                    <label class="block text-[13px] text-gray-600 mb-1">Razão Social</label>
+                    <input type="text" name="razao_social" class="w-full h-[42px] border border-gray-400 rounded px-3 text-sm focus:outline-none focus:border-[#EC0000] focus:ring-1 focus:ring-[#EC0000]">
+                </div>
+                <div>
+                    <label class="block text-[13px] text-gray-600 mb-1">CNPJ</label>
+                    <input type="text" name="cnpj" placeholder="00.000.000/0000-00" maxlength="18" class="w-full h-[42px] border border-gray-400 rounded px-3 text-sm focus:outline-none focus:border-[#EC0000] focus:ring-1 focus:ring-[#EC0000]">
+                </div>
+                <div>
+                    <label class="block text-[13px] text-gray-600 mb-1">CPF do Responsável</label>
+                    <input type="text" name="cpf" placeholder="000.000.000-00" maxlength="14" class="w-full h-[42px] border border-gray-400 rounded px-3 text-sm focus:outline-none focus:border-[#EC0000] focus:ring-1 focus:ring-[#EC0000]">
+                </div>
+                <div>
+                    <label class="block text-[13px] text-gray-600 mb-1">Telefone</label>
+                    <input type="text" name="telefone" placeholder="(00) 00000-0000" maxlength="15" class="w-full h-[42px] border border-gray-400 rounded px-3 text-sm focus:outline-none focus:border-[#EC0000] focus:ring-1 focus:ring-[#EC0000]">
+                </div>
+                <button type="submit" class="w-full h-[48px] bg-[#EC0000] text-white font-semibold text-[16px] rounded hover:bg-red-700 transition mt-4">
+                    Finalizar Cadastro
+                </button>
+            </form>
+
+            <p class="text-center text-[13px] text-gray-500 mt-6">
+                Já possui uma conta? <a href="{% url 'login' %}" class="text-[#EC0000] font-semibold hover:underline">Acesse aqui</a>
+            </p>
+        </div>
+    </main>
+
+    <footer class="bg-[#EC0000] text-white py-3 px-4 text-center mt-auto">
+        <p class="text-[11px] font-medium leading-relaxed">
+            Banco Santander (Brasil) S.A. - CNPJ: 90.400.888/0001-42 Instituição financeira autorizada a funcionar pelo Banco Central do Brasil.<br>
+            Av. Presidente Juscelino Kubitschek, 2041 / 2235 - Bloco A, Vila Olímpia, São Paulo /SP - CEP 04543-011
+        </p>
+    </footer>
+</div>
+{% endblock %}

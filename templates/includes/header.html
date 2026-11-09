@@ -1,0 +1,35 @@
+{% load static %}
+<header class="bg-white shrink-0 z-50 relative">
+    <div class="container mx-auto px-6 lg:px-12 h-[72px] flex items-center justify-between">
+        <div class="flex items-center gap-10">
+            <a href="/" class="flex items-center gap-1">
+                <img src="{% static 'images/Logo-Header-1.webp' %}" alt="Logo" class="w-[150px] h-auto object-cover">
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-[16px] font-medium text-gray-700">
+                <a href="#" class="hover:text-[#EC0000]">Para você</a>
+                <a href="#" class="text-gray-900">Para sua Empresa</a>
+                <a href="#" class="hover:text-[#EC0000]">Select</a>
+                <a href="#" class="hover:text-[#EC0000]">Private Banking</a>
+                <a href="#" class="hover:text-[#EC0000]">Sobre o Santander</a>
+                <a href="#" class="hover:text-[#EC0000]">Ajuda</a>
+            </nav>
+        </div>
+
+        <div class="flex items-center gap-6">
+            <!-- Dropdown Acesse sua conta -->
+            <div class="hidden lg:block relative group py-6">
+                <button class="flex items-center gap-2 text-[18px] font-bold text-[#EC0000]">
+                    Acesse sua conta
+                    <i class="fa-solid fa-chevron-down text-[14px] transition-transform duration-300 group-hover:rotate-180 mt-0.5"></i>
+                </button>
+
+                <div class="absolute top-[55px] right-0 w-[210px] bg-white rounded-[24px] shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 flex flex-col overflow-hidden py-2">
+                    <a href="{% url 'login' %}" class="px-6 py-4 text-[16px] text-[#EC0000] hover:bg-gray-50 transition font-medium">Pessoa Física</a>
+                    <a href="{% url 'login' %}" class="px-6 py-4 text-[16px] text-[#333333] hover:bg-gray-50 transition font-medium">Empresas</a>
+                </div>
+            </div>
+
+            <a href="{% url 'escolha_conta' %}" class="bg-[#EC0000] text-white text-[16px] font-semibold px-7 py-3 rounded-full hover:bg-red-700 transition">Seja cliente</a>
+        </div>
+    </div>
+</header>

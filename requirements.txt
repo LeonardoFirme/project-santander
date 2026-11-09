@@ -1,0 +1,4 @@
+Django>=5.0
+django-unfold>=0.40
+mysqlclient>=2.2
+python-dotenv>=1.0

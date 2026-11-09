@@ -1,0 +1,28 @@
+{% extends "admin/change_list.html" %}
+{% load i18n static %}
+
+{% block content_title %}
+    <div class="mb-6">
+        <h1 class="text-xl font-bold text-font-important-light dark:text-font-important-dark">Movimentações e Fluxo Financeiro</h1>
+
+        <!-- Resumo de Fluxo -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            <div class="bg-white dark:bg-base-900 p-4 rounded-lg shadow-sm border border-base-200 dark:border-base-800">
+                <p class="text-sm text-font-subtle-light dark:text-font-subtle-dark mb-1">Entradas ({{ fluxo_mes }})</p>
+                <p class="text-xl font-bold text-green-600">R$ {{ fluxo_entradas }}</p>
+            </div>
+
+            <div class="bg-white dark:bg-base-900 p-4 rounded-lg shadow-sm border border-base-200 dark:border-base-800">
+                <p class="text-sm text-font-subtle-light dark:text-font-subtle-dark mb-1">Saídas ({{ fluxo_mes }})</p>
+                <p class="text-xl font-bold text-red-600">R$ {{ fluxo_saidas }}</p>
+            </div>
+
+            <div class="bg-white dark:bg-base-900 p-4 rounded-lg shadow-sm border border-base-200 dark:border-base-800">
+                <p class="text-sm text-font-subtle-light dark:text-font-subtle-dark mb-1">Balanço ({{ fluxo_mes }})</p>
+                <p class="text-xl font-bold {% if fluxo_balanco_negativo %}text-red-600{% else %}text-blue-600{% endif %}">
+                    {% if fluxo_balanco_negativo %}-{% endif %}R$ {{ fluxo_balanco }}
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

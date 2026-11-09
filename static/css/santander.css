@@ -1,0 +1,5 @@
+/* Reset mínimo — Tailwind cuida do restante */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Utilitário para o Font Awesome não quebrar layout */
+.fa-solid, .fa-brands { line-height: 1; }

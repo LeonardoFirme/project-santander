@@ -1,0 +1,15 @@
+<div id="global-preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white/70 backdrop-blur-sm transition-opacity duration-300">
+    <div class="w-12 h-12 border-4 border-gray-200 border-t-[#EC0000] rounded-full animate-spin"></div>
+</div>
+
+<script>
+    window.addEventListener('load', function () {
+        const preloader = document.getElementById('global-preloader');
+        if (preloader) {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 5000);
+        }
+    });
+</script>
